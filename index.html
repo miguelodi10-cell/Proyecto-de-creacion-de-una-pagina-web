@@ -3,77 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hola y Bienvenidos</title>
+  <title>STUDIO // Nueva Colección &amp; Campaña</title>
 
-  <!-- Google Fonts: Playfair Display (elegante) y Poppins (limpia y moderna) -->
+  <!-- Google Fonts: Inter para un look moderno, limpio y editorial -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Estilos generales */
-    * {
+    /* Reset & Base */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
     body {
-      background-color: #FCECEF; /* Fondo rosa pastel suave */
-      font-family: 'Poppins', sans-serif;
-      color: #4A3E3D;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* Top Announcement Ticker Bar */
+    .top-bar {
+      background-color: #000000;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid #ECECEC;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background-color: #000000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #555555;
+      transition: color 0.2s;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #000000;
+      font-weight: 700;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Header Icons */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .icon-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 24px;
+      color: #000000;
+      transition: opacity 0.2s;
+      position: relative;
     }
 
-    /* Tarjeta central limpia y ordenada */
-    .card {
-      background-color: #FFFFFF;
-      max-width: 620px;
-      width: 100%;
-      padding: 36px 28px;
-      border-radius: 24px;
+    .icon-btn:hover {
+      opacity: 0.6;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      font-weight: 700;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero Campaign Section (Featuring the video) */
+    .campaign-hero {
+      position: relative;
+      background-color: #000000;
+      color: #FFFFFF;
+      padding: 30px 16px 50px;
+    }
+
+    .campaign-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .campaign-header {
       text-align: center;
-      box-shadow: 0 10px 30px rgba(184, 115, 128, 0.08);
-      border: 1px solid #F6D6DE;
-    }
-
-    /* Tipografía decorativa para el título */
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
-      font-weight: 600;
-      color: #9C4156;
-      margin-bottom: 12px;
-      line-height: 1.25;
-    }
-
-    /* Texto simple y fácil de leer */
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #6E5B5D;
-      font-weight: 300;
       margin-bottom: 24px;
     }
 
-    /* Contenedor responsivo para el video de YouTube (16:9) */
-    .video-wrapper {
+    .campaign-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #A3A3A3;
+      margin-bottom: 8px;
+    }
+
+    .campaign-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .campaign-desc {
+      font-size: 0.88rem;
+      color: #CCCCCC;
+      font-weight: 300;
+      max-width: 580px;
+      margin: 0 auto 20px;
+    }
+
+    /* Video Frame Container */
+    .video-container {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      border-radius: 16px;
+      background-color: #111111;
+      border-radius: 4px;
       overflow: hidden;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 24px rgba(156, 65, 86, 0.12);
-      border: 1px solid #F7DDE3;
-      background-color: #000;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .video-wrapper iframe {
+    .video-container iframe {
       position: absolute;
       top: 0;
       left: 0;
@@ -82,49 +220,579 @@
       border: 0;
     }
 
-    /* Botón decorativo sencillo */
-    .boton {
-      display: inline-block;
-      text-decoration: none;
-      background-color: #E2738A;
-      color: #FFFFFF;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 12px 28px;
-      border-radius: 9999px;
-      transition: all 0.25s ease;
-      border: none;
-      cursor: pointer;
+    .campaign-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
     }
 
-    .boton:hover {
-      background-color: #CE5D74;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(226, 115, 138, 0.3);
+    .btn-primary {
+      background-color: #FFFFFF;
+      color: #000000;
+      padding: 13px 32px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      border: 1px solid #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background-color: transparent;
+      color: #FFFFFF;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #FFFFFF;
+      padding: 13px 32px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: #FFFFFF;
+    }
+
+    /* Product Grid Section */
+    .collection-section {
+      max-width: 1400px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 30px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #EBEBEB;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-link {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-bottom: 1px solid #000000;
+      padding-bottom: 2px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px 18px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-image-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background-color: #F6F6F6;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .product-image-wrap img {
+      transform: scale(1.04);
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+
+    .wishlist-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .quick-add-btn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #000000;
+      color: #FFFFFF;
+      padding: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.25s ease;
+    }
+
+    .product-card:hover .quick-add-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .product-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888888;
+      margin-bottom: 2px;
+    }
+
+    .product-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #111111;
+      margin-bottom: 4px;
+    }
+
+    .product-price {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #000000;
+      color: #FFFFFF;
+      padding: 14px 24px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2000;
+    }
+
+    .toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Newsletter section */
+    .newsletter-section {
+      background-color: #F8F8F8;
+      padding: 50px 20px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .newsletter-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .newsletter-sub {
+      font-size: 0.82rem;
+      color: #666666;
+      margin-bottom: 24px;
+    }
+
+    .newsletter-form {
+      max-width: 440px;
+      margin: 0 auto;
+      display: flex;
+      border-bottom: 1px solid #000000;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 10px 4px;
+      border: none;
+      background: transparent;
+      font-size: 0.85rem;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .newsletter-btn {
+      padding: 10px 18px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #FFFFFF;
+      border-top: 1px solid #EBEBEB;
+      padding: 60px 24px 30px;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.78rem;
+      color: #666666;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: #000000;
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid #F0F0F0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: #888888;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 992px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .brand-logo {
+        font-size: 1.1rem;
+      }
+      .quick-add-btn {
+        opacity: 1;
+        transform: translateY(0);
+        position: static;
+        margin-top: 8px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Contenedor principal -->
-  <main class="card">
-    <h1>Descubre el Cáucaso</h1>
-    <p>
-      Un fascinante viaje visual por una de las regiones montañosas más misteriosas, históricas y hermosas del mundo.
-    </p>
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    Envíos gratis a partir de 30€ &bull; Devoluciones ampliadas a 30 días
+  </div>
 
-    <!-- Reproductor de YouTube integrado -->
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/32DzPbUEJak" 
-        title="Cáucaso: El mundo del que nunca has oído hablar" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
+  <!-- Header -->
+  <header>
+    <div class="nav-left">
+      <button class="menu-toggle" aria-label="Abrir Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active">New In</a></li>
+        <li><a href="#editorial">Campaign</a></li>
+        <li><a href="#coleccion">Colección</a></li>
+        <li><a href="#">Calzado</a></li>
+        <li><a href="#">Accesorios</a></li>
+      </ul>
     </div>
 
-    <a href="https://youtu.be/32DzPbUEJak" target="_blank" rel="noopener noreferrer" class="boton">Ver en YouTube</a>
-  </main>
+    <!-- Brand Logo -->
+    <a href="#" class="brand-logo">STUDIO.</a>
 
+    <!-- Header Actions -->
+    <div class="nav-right">
+      <!-- Search Icon -->
+      <button class="icon-btn" aria-label="Buscar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+      <!-- Wishlist Icon -->
+      <button class="icon-btn" aria-label="Favoritos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </button>
+
+      <!-- Cart Icon -->
+      <button class="icon-btn" aria-label="Bolsa de la compra">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Video Campaign Section -->
+  <section class="campaign-hero" id="editorial">
+    <div class="campaign-inner">
+      <div class="campaign-header">
+        <div class="campaign-eyebrow">Editorial Campaign 2026</div>
+        <h1 class="campaign-title">The Caucasus Odyssey</h1>
+        <p class="campaign-desc">
+          Explora la fuerza del paisaje, el volumen de las texturas y el nuevo lenguaje estético de la temporada.
+        </p>
+      </div>
+
+      <!-- Integrated YouTube Player -->
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/32DzPbUEJak?rel=0&amp;modestbranding=1" 
+          title="Editorial Campaign Video" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="campaign-actions">
+        <a href="#coleccion" class="btn-primary">Ver la Colección</a>
+        <a href="https://youtu.be/32DzPbUEJak" target="_blank" rel="noopener noreferrer" class="btn-outline">Ver en Pantalla Completa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Lookbook Grid -->
+  <section class="collection-section" id="coleccion">
+    <div class="section-title-wrap">
+      <h2 class="section-title">Prendas de Campaña</h2>
+      <a href="#" class="section-link">Ver todo (48)</a>
+    </div>
+
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" alt="Chaqueta Utility Beige" loading="lazy">
+          <button class="wishlist-btn" aria-label="Añadir a deseos">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <button class="quick-add-btn" onclick="addToCart('Chaqueta Utility Oversize')">Añadir a la cesta</button>
+        </div>
+        <div class="product-tag">Edición Especial</div>
+        <h3 class="product-name">Chaqueta Utility Oversize</h3>
+        <span class="product-price">49,99 €</span>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=80" alt="Vestido Fluido Minimal" loading="lazy">
+          <button class="wishlist-btn" aria-label="Añadir a deseos">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <button class="quick-add-btn" onclick="addToCart('Vestido Midi Texturizado')">Añadir a la cesta</button>
+        </div>
+        <div class="product-tag">New In</div>
+        <h3 class="product-name">Vestido Midi Texturizado</h3>
+        <span class="product-price">35,99 €</span>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=80" alt="Pantalón Tailored Crudo" loading="lazy">
+          <button class="wishlist-btn" aria-label="Añadir a deseos">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <button class="quick-add-btn" onclick="addToCart('Pantalón Wide Leg Lino')">Añadir a la cesta</button>
+        </div>
+        <div class="product-tag">Trending</div>
+        <h3 class="product-name">Pantalón Wide Leg Lino</h3>
+        <span class="product-price">29,99 €</span>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=700&q=80" alt="Abrigo Estructurado Monocromo" loading="lazy">
+          <button class="wishlist-btn" aria-label="Añadir a deseos">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <button class="quick-add-btn" onclick="addToCart('Trench Fluido Desestructurado')">Añadir a la cesta</button>
+        </div>
+        <div class="product-tag">Must Have</div>
+        <h3 class="product-name">Trench Fluido Desestructurado</h3>
+        <span class="product-price">59,99 €</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- Newsletter Bar -->
+  <section class="newsletter-section">
+    <h3 class="newsletter-title">Únete a la Comunidad</h3>
+    <p class="newsletter-sub">Recibe un 10% de descuento en tu primer pedido y acceso a preventas exclusivas.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="Introduce tu correo electrónico" class="newsletter-input" required>
+      <button type="submit" class="newsletter-btn">Suscribirme</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Comprar online</a></li>
+          <li><a href="#">Pago &amp; Financiación</a></li>
+          <li><a href="#">Envíos y entregas</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+          <li><a href="#">Estado del pedido</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Seguimiento</h4>
+        <ul>
+          <li><a href="#">Localizador de tiendas</a></li>
+          <li><a href="#">Guía de tallas</a></li>
+          <li><a href="#">Ticket electrónico</a></li>
+          <li><a href="#">Tarjeta de regalo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Sostenibilidad</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+          <li><a href="#">Prensa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Políticas</h4>
+        <ul>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Condiciones de compra</a></li>
+          <li><a href="#">Configuración de cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 STUDIO ONLINE. TODOS LOS DERECHOS RESERVADOS.</span>
+      <span>ESPAÑA / ES (EUR)</span>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div class="toast-msg" id="toast">Prenda añadida a la cesta</div>
+
+  <script>
+    let cartTotal = 0;
+    const cartBadge = document.getElementById('cartCount');
+    const toast = document.getElementById('toast');
+
+    function addToCart(productName) {
+      cartTotal++;
+      cartBadge.textContent = cartTotal;
+
+      toast.textContent = productName + ' añadido a tu cesta';
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      toast.textContent = '¡Gracias por suscribirte!';
+      toast.classList.add('show');
+      e.target.reset();
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
 </body>
 </html>
